@@ -14,7 +14,8 @@ namespace LernGame.Movement
 		private float speed = 1.0f;
 		[SerializeField]
 		private float maxRadiansDelta = 10f;
-		public Vector3 Direction { get; set; }
+		public Vector3 MovementDirection { get; set; }
+		public Vector3 LookDirection { get; set; }
 		private CharacterController characterController;
 		protected void Awake()
 		{
@@ -23,7 +24,7 @@ namespace LernGame.Movement
 		protected void Update()
 		{
 			Translite();
-			if(maxRadiansDelta > 0f && Direction != Vector3.zero)
+			if(maxRadiansDelta > 0f && LookDirection != Vector3.zero)
 			{
 				Rotate();
 			}
@@ -31,18 +32,18 @@ namespace LernGame.Movement
 
 		private void Translite()
 		{
-			var delta = Direction * speed * Time.deltaTime;
+			var delta = MovementDirection * speed * Time.deltaTime;
 			characterController.Move(delta);
 		}
 		private void Rotate()
 		{
 			var currentLookDirection = transform.rotation * Vector3.forward;
-			float sqrMagnitude = (currentLookDirection - Direction).sqrMagnitude;
+			float sqrMagnitude = (currentLookDirection - LookDirection).sqrMagnitude;
 			if (sqrMagnitude > SqrEpsilon)
 			{
 				var newRotation = Quaternion.Slerp(
 					transform.rotation, 
-					Quaternion.LookRotation(Direction, Vector3.up), 
+					Quaternion.LookRotation(LookDirection, Vector3.up), 
 					maxRadiansDelta * Time.deltaTime);
 				transform.rotation = newRotation;
 			}

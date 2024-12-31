@@ -22,6 +22,8 @@ namespace LernGame.Shooting
 
 		[SerializeField]
 		private Transform _bulletSpawnPosition;
+		[SerializeField]
+		private float _damage = 1f;
 		
 		public void Shoot(Vector3 targetPoint)
 		{
@@ -29,7 +31,7 @@ namespace LernGame.Shooting
 			var target = targetPoint - _bulletSpawnPosition.position;
 			target.y = 0;
 			target.Normalize();
-			bullet.Initialize(target, _bulletMaxFlyDistance, _bulletFlySpeed);
+			bullet.Initialize(target, _bulletMaxFlyDistance, _bulletFlySpeed, _damage);
 		}
 	}
 }
