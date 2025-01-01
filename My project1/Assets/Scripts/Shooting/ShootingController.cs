@@ -4,13 +4,25 @@ namespace LernGame.Shooting
 {
 	public class ShootingController : MonoBehaviour
 	{
+		private enum TargetType {Player, Enemy }
 		public bool HasTarget => _target != null;
 		private Weapon _weapon;
 		private float _nextShotTimerSec;
 		private GameObject _target;
 		private Collider[] _colliders = new Collider[2];
+
+		[SerializeField]
+		private TargetType _targetType = TargetType.Enemy;
+		private int _mask;
 		public Vector3 TargetPosition => _target.transform.position;
-	   
+
+		protected void Awake()
+		{
+			if (_targetType == TargetType.Player)
+				_mask = LayerUtils.PlayerMask;
+			else if (_targetType == TargetType.Enemy)
+				_mask = LayerUtils.EnemyMask;
+		}
 		protected void Update()
 		{
 			_target = GetTarget();
@@ -33,9 +45,9 @@ namespace LernGame.Shooting
 			GameObject target = null;
 			var position = _weapon.transform.position;
 			var radius = _weapon.ShootRadius;
-			var mask = LayerUtils.EnemyMask;
+			//var mask = LayerUtils.EnemyMask;
 
-			var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, mask);
+			var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, _mask);
 			if (size > 0)
 			{
 				for(int i = 0; i < size; i++)

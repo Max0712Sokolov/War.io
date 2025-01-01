@@ -128,8 +128,8 @@ GameObject:
   - component: {fileID: 3950143557762244865}
   - component: {fileID: 3754977325524716304}
   - component: {fileID: 566630560400563223}
-  - component: {fileID: 6935418466486971406}
   - component: {fileID: 4727405898794031414}
+  - component: {fileID: 7679562776507984004}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -256,18 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   maxRadiansDelta: 10
---- !u!114 &6935418466486971406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3287056705604812897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e9af6a1917f074f83edef2a6fe0ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4727405898794031414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,4 +270,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseWeaponPrefab: {fileID: 8590368956194839970, guid: ac55098a497e00d47b6654e05dace2f4, type: 3}
   _hand: {fileID: 7472151071769322973}
-  _health: 5
+  _health: 3
+--- !u!114 &7679562776507984004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287056705604812897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ad3782ff00b314084b81aa31ae1711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetType: 0

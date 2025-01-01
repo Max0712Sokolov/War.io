@@ -5,7 +5,7 @@ namespace LernGame.Movement
 {
 	public class PlayerMovementDirectionController : MonoBehaviour, IMovementDirectionSourse
 	{
-		private Camera camera;
+		private new Camera camera;
 		public Vector3 MovementDirection {  get; private set; }
 
 		protected void Awake()

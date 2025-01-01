@@ -362,6 +362,7 @@
 "Assets/Scripts/Movement/PlayerMovementDirectionController.cs"
 "Assets/Scripts/PlayerCharater.cs"
 "Assets/Scripts/Shooting/Bullet.cs"
+"Assets/Scripts/Shooting/PlayerShootingController.cs"
 "Assets/Scripts/Shooting/ShootingController.cs"
 "Assets/Scripts/Shooting/Weapon.cs"
 -langversion:9.0
