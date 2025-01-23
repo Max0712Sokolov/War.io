@@ -11,12 +11,17 @@ namespace LernGame.Movement
 	{
 		private static readonly float SqrEpsilon = Mathf.Epsilon * Mathf.Epsilon;
 		[SerializeField]
-		private float speed = 1.0f;
+		private float _speed = 1.0f;
 		[SerializeField]
-		private float maxRadiansDelta = 10f;
+		private float _sprintMultipiler = 2.0f;
+		[SerializeField]
+		private float _maxRadiansDelta = 10f;
 		public Vector3 MovementDirection { get; set; }
 		public Vector3 LookDirection { get; set; }
 		private CharacterController characterController;
+
+		public bool IsRunning { get; set; }
+
 		protected void Awake()
 		{
 			characterController = GetComponent<CharacterController>();
@@ -24,7 +29,7 @@ namespace LernGame.Movement
 		protected void Update()
 		{
 			Translite();
-			if(maxRadiansDelta > 0f && LookDirection != Vector3.zero)
+			if(_maxRadiansDelta > 0f && LookDirection != Vector3.zero)
 			{
 				Rotate();
 			}
@@ -32,7 +37,9 @@ namespace LernGame.Movement
 
 		private void Translite()
 		{
-			var delta = MovementDirection * speed * Time.deltaTime;
+			var delta = MovementDirection * _speed * Time.deltaTime;
+			if (IsRunning)
+				delta *= _sprintMultipiler;
 			characterController.Move(delta);
 		}
 		private void Rotate()
@@ -44,7 +51,7 @@ namespace LernGame.Movement
 				var newRotation = Quaternion.Slerp(
 					transform.rotation, 
 					Quaternion.LookRotation(LookDirection, Vector3.up), 
-					maxRadiansDelta * Time.deltaTime);
+					_maxRadiansDelta * Time.deltaTime);
 				transform.rotation = newRotation;
 			}
 		}

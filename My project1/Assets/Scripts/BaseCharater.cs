@@ -39,6 +39,7 @@ namespace LernGame
 				lookDirection = (_shootingController.TargetPosition - transform.position).normalized;
 			_charaterMovementController.MovementDirection = direction;
 			_charaterMovementController.LookDirection = lookDirection;
+			_charaterMovementController.IsRunning = _movementDirectionSourse.IsRunning;
 			if(_health <= 0)
 				Destroy(gameObject);
 		}

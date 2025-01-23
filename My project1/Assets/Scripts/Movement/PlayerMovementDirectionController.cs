@@ -5,8 +5,9 @@ namespace LernGame.Movement
 {
 	public class PlayerMovementDirectionController : MonoBehaviour, IMovementDirectionSourse
 	{
-		private Camera camera;
+		private new Camera camera;
 		public Vector3 MovementDirection {  get; private set; }
+		public bool IsRunning { get; private set; }
 
 		protected void Awake()
 		{
@@ -21,6 +22,10 @@ namespace LernGame.Movement
 			direction = camera.transform.rotation * direction;
 			direction.y = 0;
 			MovementDirection = direction.normalized;
+			if(Input.GetButton("Sprint"))
+				IsRunning = true;
+			else
+				IsRunning = false;
 		}
 	}
 
