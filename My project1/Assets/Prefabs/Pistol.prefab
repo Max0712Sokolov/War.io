@@ -190,3 +190,4 @@ MonoBehaviour:
   _bulletMaxFlyDistance: 50
   _bulletFlySpeed: 20
   _bulletSpawnPosition: {fileID: 5822305014415564237}
+  _damage: 1

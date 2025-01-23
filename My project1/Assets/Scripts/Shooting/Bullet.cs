@@ -10,12 +10,14 @@ namespace LernGame.Shooting
 		private float _flySpeed;
 		private float _maxFlyDistance;
 		private float _currentFlyDistance;
+		public float Damage { get; private set; }
 
-		public void Initialize(Vector3 direction, float maxFlyDistance, float flySpeed)
+		public void Initialize(Vector3 direction, float maxFlyDistance, float flySpeed, float damage)
 		{
 			_direction = direction;
 			_flySpeed = flySpeed;
 			_maxFlyDistance = maxFlyDistance;
+			Damage = damage;
 		}
 		protected void Update()
 		{
