@@ -1,3 +1,4 @@
+using LearnGame.PickUp;
 using LernGame.Movement;
 using LernGame.Shooting;
 
@@ -52,7 +53,14 @@ namespace LernGame
 
 				Destroy(bullet.gameObject);
 			}
+			else if (LayerUtils.IsPickUp(other.gameObject))
+			{
+				var pickUp = other.gameObject.GetComponent<PickUpWeapon>();
+				_shootingController.SetWeapon(pickUp.WeaponPrefab, _hand);
+				Destroy(pickUp.gameObject);
+			}
 		}
+		
 	}
 
 }

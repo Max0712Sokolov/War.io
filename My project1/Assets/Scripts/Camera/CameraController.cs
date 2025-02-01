@@ -5,7 +5,7 @@ using System;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private PlayerCharater player;
+    private PlayerCharater _player;
 	[SerializeField]
 	private Vector3 followCameraOffset = Vector3.zero;
 	[SerializeField]
@@ -14,14 +14,17 @@ public class CameraController : MonoBehaviour
 
 	protected void Awake()
 	{
-		if (player == null)
-			throw new NullReferenceException($"Follow camera can't follow null player - {nameof(player)}");
+		if (_player == null)
+			throw new NullReferenceException($"Follow camera can't follow null player - {nameof(_player)}");
 	}
 
 	void LateUpdate()
     {
-		Vector3 targetRotation = rotationOffset - followCameraOffset;
-		transform.position = player.transform.position + followCameraOffset;
-		transform.rotation = Quaternion.LookRotation(targetRotation, Vector3.up);
+		if(_player != null)
+		{
+			Vector3 targetRotation = rotationOffset - followCameraOffset;
+			transform.position = _player.transform.position + followCameraOffset;
+			transform.rotation = Quaternion.LookRotation(targetRotation, Vector3.up);
+		}
     }
 }

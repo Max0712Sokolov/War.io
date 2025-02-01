@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36fb74db936f3a43aaf60c0690ef72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 499251774}
+  _player: {fileID: 499251774}
   followCameraOffset: {x: -9, y: 10, z: -7}
   rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &2744787164569496086
@@ -571,6 +571,10 @@ PrefabInstance:
     - target: {fileID: 3287056705604812897, guid: 82ba61cd0fd269b4b96ef09ee46fb7fe, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754977325524716304, guid: 82ba61cd0fd269b4b96ef09ee46fb7fe, type: 3}
+      propertyPath: m_Height
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7144383180294935310, guid: 82ba61cd0fd269b4b96ef09ee46fb7fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -617,6 +621,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82ba61cd0fd269b4b96ef09ee46fb7fe, type: 3}
+--- !u!1001 &2895153077155853390
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3381004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.7713258
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828871762438202154, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729423057638389135, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
+      propertyPath: m_Name
+      value: RiflePickUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a5bfcc5f9bccf242ba45115e184e1e9, type: 3}
 --- !u!1001 &5592327383804610074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,6 +693,10 @@ PrefabInstance:
     - target: {fileID: 5202446815134390679, guid: 45339f8232849ce4f800e74ae4d2c97c, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169635752366851977, guid: 45339f8232849ce4f800e74ae4d2c97c, type: 3}
+      propertyPath: _health
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6169635752366851977, guid: 45339f8232849ce4f800e74ae4d2c97c, type: 3}
       propertyPath: _baseWeaponPrefab
@@ -705,3 +770,4 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 5592327383804610074}
   - {fileID: 2744787164569496086}
+  - {fileID: 2895153077155853390}
