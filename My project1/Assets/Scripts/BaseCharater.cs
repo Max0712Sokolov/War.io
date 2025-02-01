@@ -8,7 +8,7 @@ namespace LernGame
 {
 	[RequireComponent(typeof(CharaterMovementController), typeof(ShootingController))]
 
-	public class BaseCharater : MonoBehaviour
+	public abstract class BaseCharater : MonoBehaviour
 	{
 		[SerializeField]
 		private Weapon _baseWeaponPrefab;
@@ -30,7 +30,7 @@ namespace LernGame
 
 		protected void Start()
 		{
-			_shootingController.SetWeapon(_baseWeaponPrefab, _hand);
+			SetWeapon(_baseWeaponPrefab);
 		}
 		protected void Update()
 		{
@@ -56,11 +56,15 @@ namespace LernGame
 			else if (LayerUtils.IsPickUp(other.gameObject))
 			{
 				var pickUp = other.gameObject.GetComponent<PickUpWeapon>();
-				_shootingController.SetWeapon(pickUp.WeaponPrefab, _hand);
+				pickUp.PickUp(this);
 				Destroy(pickUp.gameObject);
 			}
 		}
-		
+		public void SetWeapon(Weapon weapon)
+		{
+			_shootingController.SetWeapon(weapon, _hand);
+
+		}
 	}
 
 }

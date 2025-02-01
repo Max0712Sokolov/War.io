@@ -1,11 +1,18 @@
+using LernGame;
 using LernGame.Shooting;
 using UnityEngine;
 
 namespace LearnGame.PickUp
 {
-    public class PickUpWeapon : MonoBehaviour
-    {
-        [field:SerializeField]
-        public Weapon WeaponPrefab {  get; private set; }
-    }
+	public class PickUpWeapon : PickUpItem
+	{
+		[SerializeField]
+		private Weapon _weaponPrefab;
+
+		public override void PickUp(BaseCharater charater)
+		{
+			base.PickUp(charater);
+			charater.SetWeapon(_weaponPrefab);
+		}
+	}
 }

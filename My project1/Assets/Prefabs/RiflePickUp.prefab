@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c830465fc67a7e64bb626a985d1f15c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponPrefab>k__BackingField: {fileID: 2043859026216549472, guid: 9d14cf3fc7d91234e87ef4e52ca37d62, type: 3}
+  _weaponPrefab: {fileID: 2043859026216549472, guid: 9d14cf3fc7d91234e87ef4e52ca37d62, type: 3}
 --- !u!65 &7573304963165569223
 BoxCollider:
   m_ObjectHideFlags: 0
