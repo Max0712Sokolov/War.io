@@ -41,7 +41,7 @@ namespace LernGame
 			_charaterMovementController.MovementDirection = direction;
 			_charaterMovementController.LookDirection = lookDirection;
 			_charaterMovementController.IsRunning = _movementDirectionSourse.IsRunning;
-			if(_health <= 0)
+			if (_health <= 0)
 				Destroy(gameObject);
 		}
 		protected void OnTriggerEnter(Collider other)
@@ -55,7 +55,7 @@ namespace LernGame
 			}
 			else if (LayerUtils.IsPickUp(other.gameObject))
 			{
-				var pickUp = other.gameObject.GetComponent<PickUpWeapon>();
+				var pickUp = other.gameObject.GetComponent<PickUpItem>();
 				pickUp.PickUp(this);
 				Destroy(pickUp.gameObject);
 			}
@@ -63,8 +63,15 @@ namespace LernGame
 		public void SetWeapon(Weapon weapon)
 		{
 			_shootingController.SetWeapon(weapon, _hand);
-
+		}
+		public void SpeedBoost(float multipiller, float timeSec)
+		{
+			_charaterMovementController.TimeSpeedBoostSec = timeSec;
+			_charaterMovementController.SpeedBoostMultipiller = multipiller;
 		}
 	}
 
+		
 }
+
+

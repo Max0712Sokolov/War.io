@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1685971504379311909
+--- !u!1 &1982299454675179591
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,31 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3174715333352099448}
-  m_Layer: 8
-  m_Name: AssaultRifle
+  - component: {fileID: 6449048634748676278}
+  - component: {fileID: 827158311310166069}
+  m_Layer: 0
+  m_Name: SniperRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3174715333352099448
+--- !u!4 &6449048634748676278
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685971504379311909}
+  m_GameObject: {fileID: 1982299454675179591}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4536609843075452149}
+  - {fileID: 2116479517406815380}
   m_Father: {fileID: 5828871762438202154}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4764144053312256063
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &827158311310166069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982299454675179591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb861dfa8ae95b48acd9a85585ab722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BulletPrefab>k__BackingField: {fileID: 1170783247869774451, guid: 697836a6f082f7444b600d75c8a065f8, type: 3}
+  <ShootRadius>k__BackingField: 20
+  <ShootFrequenceSec>k__BackingField: 10
+  _bulletMaxFlyDistance: 30
+  _bulletFlySpeed: 30
+  _bulletSpawnPosition: {fileID: 0}
+  _damage: 5
+--- !u!1 &2923870784347061754
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,46 +60,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4536609843075452149}
-  - component: {fileID: 7683426844662054890}
-  - component: {fileID: 2422169555013864578}
-  m_Layer: 8
+  - component: {fileID: 2116479517406815380}
+  - component: {fileID: 9088258041417973370}
+  - component: {fileID: 518137523848722628}
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4536609843075452149
+--- !u!4 &2116479517406815380
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764144053312256063}
+  m_GameObject: {fileID: 2923870784347061754}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.6, z: 0.3}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 2, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3174715333352099448}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7683426844662054890
+  m_Father: {fileID: 6449048634748676278}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!33 &9088258041417973370
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764144053312256063}
+  m_GameObject: {fileID: 2923870784347061754}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2422169555013864578
+--- !u!23 &518137523848722628
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764144053312256063}
+  m_GameObject: {fileID: 2923870784347061754}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -93,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca685b0df63e45847bd66fcaf2ed5a9b, type: 2}
+  - {fileID: 2100000, guid: 92f1466d8df710f459793759907e18f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,7 +147,7 @@ GameObject:
   - component: {fileID: 8145304953623216016}
   - component: {fileID: 7573304963165569223}
   m_Layer: 8
-  m_Name: RiflePickUp
+  m_Name: SniperRiflePickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3174715333352099448}
+  - {fileID: 6449048634748676278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8145304953623216016
@@ -161,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c830465fc67a7e64bb626a985d1f15c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 2043859026216549472, guid: 9d14cf3fc7d91234e87ef4e52ca37d62, type: 3}
+  _weaponPrefab: {fileID: 5117945912483451558, guid: d0e3a8391906b9642815a2c6a35abfc3, type: 3}
 --- !u!65 &7573304963165569223
 BoxCollider:
   m_ObjectHideFlags: 0

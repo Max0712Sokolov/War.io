@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditor.XR;
 using UnityEngine;
 
 namespace LearnGame.PickUp
@@ -6,16 +7,24 @@ namespace LearnGame.PickUp
 	public class PickUpSpawner : MonoBehaviour
 	{
 		[SerializeField]
-		private PickUpWeapon _pickUpPrefab;
+		private PickUpItem _pickUpPrefab;
 		[SerializeField]
 		private float _range = 2f;
 		[SerializeField]
 		private int _maxCount = 2;
 		[SerializeField]
-		private float _spawnIntervalSeconds = 10f;
+		private float _spawnIntervalSecondsMin = 2f;
+		[SerializeField]
+		private float _spawnIntervalSecondsMax = 10f;
+		private float _spawnIntervalSeconds;
 
 		private float _currentSpawnTimerSeconds;
 		private int _currentCount;
+
+		protected void Awake()
+		{
+			_spawnIntervalSeconds = Random.Range(_spawnIntervalSecondsMin, _spawnIntervalSecondsMax);
+		}
 
 		protected void Update()
 		{
@@ -32,6 +41,7 @@ namespace LearnGame.PickUp
 
 					var pickUp = Instantiate(_pickUpPrefab, randomPosition, Quaternion.identity, transform);
 					pickUp.OnPickedUp += OnItemPickedUp;
+					_spawnIntervalSeconds = Random.Range(_spawnIntervalSecondsMin, _spawnIntervalSecondsMax);
 				}
 			}
 		}
