@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6449048634748676278}
-  - component: {fileID: 827158311310166069}
   m_Layer: 0
   m_Name: SniperRifle
   m_TagString: Untagged
@@ -33,25 +32,6 @@ Transform:
   - {fileID: 2116479517406815380}
   m_Father: {fileID: 5828871762438202154}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &827158311310166069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982299454675179591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb861dfa8ae95b48acd9a85585ab722, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <BulletPrefab>k__BackingField: {fileID: 1170783247869774451, guid: 697836a6f082f7444b600d75c8a065f8, type: 3}
-  <ShootRadius>k__BackingField: 20
-  <ShootFrequenceSec>k__BackingField: 10
-  _bulletMaxFlyDistance: 30
-  _bulletFlySpeed: 30
-  _bulletSpawnPosition: {fileID: 0}
-  _damage: 5
 --- !u!1 &2923870784347061754
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 0.5, y: 2, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6449048634748676278}
@@ -201,5 +181,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1.2, z: 0.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.5, y: 3, z: 0.5}
+  m_Center: {x: 0, y: 1.2, z: 0}

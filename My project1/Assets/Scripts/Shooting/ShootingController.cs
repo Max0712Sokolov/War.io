@@ -7,7 +7,7 @@ namespace LernGame.Shooting
 		private enum TargetType {Player, Enemy }
 		public bool HasTarget => _target != null;
 		private Weapon _weapon;
-		private float _nextShotTimerSec;
+		private float _nextShotTimerSec = 0f;
 		private GameObject _target;
 		private Collider[] _colliders = new Collider[2];
 
@@ -30,8 +30,10 @@ namespace LernGame.Shooting
 			if(_nextShotTimerSec < 0)
 			{
 				if(HasTarget)
+				{
 					_weapon.Shoot(TargetPosition);
-				_nextShotTimerSec = _weapon.ShootFrequenceSec;
+					_nextShotTimerSec = _weapon.ShootFrequenceSec;
+				}
 			}
 		}
 		public void SetWeapon(Weapon weaponPrefab, Transform hand)
