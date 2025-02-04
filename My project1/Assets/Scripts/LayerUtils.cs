@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LernGame
+namespace LearnGame
 {
 	public static class LayerUtils
 	{
@@ -15,6 +15,7 @@ namespace LernGame
 		public static readonly int EnemyMask = LayerMask.GetMask(EnemyLayerName);
 		public static readonly int PlayerMask = LayerMask.GetMask(PlayerLayerName);
 		public static readonly int CharaterMask = LayerMask.GetMask(EnemyLayerName, PlayerLayerName);
+		public static readonly int PickUpMask = LayerMask.GetMask(PickUpLayerName);
 
 		public static bool IsBullet(GameObject other) => other.layer == BulletLayer;
 		public static bool IsPickUp(GameObject other) => other.layer == PickUpLayer;

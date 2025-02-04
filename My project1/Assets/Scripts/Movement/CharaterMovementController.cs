@@ -4,7 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LernGame.Movement
+namespace LearnGame.Movement
 {
 	[RequireComponent(typeof(CharacterController))]
 	public class CharaterMovementController : MonoBehaviour

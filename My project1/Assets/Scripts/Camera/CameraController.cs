@@ -1,4 +1,4 @@
-using LernGame;
+using LearnGame;
 using UnityEngine;
 using System;
 

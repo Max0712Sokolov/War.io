@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LernGame.Shooting
+namespace LearnGame.Shooting
 {
 	public class ShootingController : MonoBehaviour
 	{
@@ -26,7 +26,8 @@ namespace LernGame.Shooting
 		protected void Update()
 		{
 			_target = GetTarget();
-			_nextShotTimerSec -= Time.deltaTime;
+			if(_nextShotTimerSec > 0f)
+				_nextShotTimerSec -= Time.deltaTime;
 			if(_nextShotTimerSec < 0)
 			{
 				if(HasTarget)

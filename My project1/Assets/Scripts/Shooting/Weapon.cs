@@ -1,9 +1,9 @@
-using LernGame.Shooting;
+using LearnGame.Shooting;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LernGame.Shooting
+namespace LearnGame.Shooting
 {
 	public class Weapon : MonoBehaviour
 	{

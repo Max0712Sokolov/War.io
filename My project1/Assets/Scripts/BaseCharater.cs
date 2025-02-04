@@ -1,10 +1,10 @@
 using LearnGame.PickUp;
-using LernGame.Movement;
-using LernGame.Shooting;
+using LearnGame.Movement;
+using LearnGame.Shooting;
 
 using UnityEngine;
 
-namespace LernGame
+namespace LearnGame
 {
 	[RequireComponent(typeof(CharaterMovementController), typeof(ShootingController))]
 
