@@ -34,6 +34,7 @@ namespace LearnGame
 		}
 		protected void Update()
 		{
+
 			var direction = _movementDirectionSourse.MovementDirection;
 			var lookDirection = direction;
 			if (_shootingController.HasTarget)
@@ -66,11 +67,9 @@ namespace LearnGame
 		}
 		public void SpeedBoost(float multipiller, float timeSec)
 		{
-			_charaterMovementController.TimeSpeedBoostSec = timeSec;
-			_charaterMovementController.SpeedBoostMultipiller = multipiller;
-		}
+			_charaterMovementController.SpeedBoost(multipiller, timeSec);
+		}		
 	}
-
 		
 }
 

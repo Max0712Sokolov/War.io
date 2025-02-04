@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using LearnGame.Movement;
+using LearnGame.Shooting;
+using UnityEngine;
 
 namespace LearnGame.Enemy
 {
@@ -25,14 +27,15 @@ namespace LearnGame.Enemy
 			{
 				var go = _colliders[i].gameObject;
 				if (go == _agentTransform.gameObject) continue;
-
+				if(go.tag == "PickUpWeapon" && !_agentTransform.gameObject.GetComponent<ShootingController>().IsWeaponDefault) continue;
+				if (go.tag == "SpeedBooster" && _agentTransform.gameObject.GetComponent<CharaterMovementController>().IsSpeedBoosted) continue;
 				var distance = DistanceFromAgetnTo(go);
 				if (distance < minDistance)
 				{
 					minDistance = distance;
 					Closest = go;
 				}
-            }
+			}
 			if(_player != null && DistanceFromAgetnTo(_player.gameObject) < minDistance)
 				Closest = _player.gameObject;
 		}

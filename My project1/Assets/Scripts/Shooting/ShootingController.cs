@@ -6,10 +6,11 @@ namespace LearnGame.Shooting
 	{
 		private enum TargetType {Player, Enemy }
 		public bool HasTarget => _target != null;
-		private Weapon _weapon;
+		public Weapon Weapon { get; private set; }
 		private float _nextShotTimerSec = 0f;
 		private GameObject _target;
 		private Collider[] _colliders = new Collider[2];
+		public bool IsWeaponDefault { get; private set; } = true;
 
 		[SerializeField]
 		private TargetType _targetType = TargetType.Enemy;
@@ -28,28 +29,32 @@ namespace LearnGame.Shooting
 			_target = GetTarget();
 			if(_nextShotTimerSec > 0f)
 				_nextShotTimerSec -= Time.deltaTime;
-			if(_nextShotTimerSec < 0)
+			if(_nextShotTimerSec <= 0)
 			{
 				if(HasTarget)
 				{
-					_weapon.Shoot(TargetPosition);
-					_nextShotTimerSec = _weapon.ShootFrequenceSec;
+					Weapon.Shoot(TargetPosition);
+					_nextShotTimerSec = Weapon.ShootFrequenceSec;
 				}
 			}
 		}
 		public void SetWeapon(Weapon weaponPrefab, Transform hand)
 		{
-			if(_weapon != null)			
-				Destroy(_weapon.gameObject);			
-			_weapon = Instantiate(weaponPrefab, hand);
-			_weapon.transform.localPosition = Vector3.zero;
-			_weapon.transform.localRotation = Quaternion.identity;
+			if(Weapon != null)
+			{
+				Destroy(Weapon.gameObject);			
+				IsWeaponDefault = false;
+			}
+			Weapon = Instantiate(weaponPrefab, hand);
+			Weapon.transform.localPosition = Vector3.zero;
+			Weapon.transform.localRotation = Quaternion.identity;
+			_nextShotTimerSec = 0f;
 		}
 		private GameObject GetTarget()
 		{
 			GameObject target = null;
-			var position = _weapon.transform.position;
-			var radius = _weapon.ShootRadius;
+			var position = Weapon.transform.position;
+			var radius = Weapon.ShootRadius;
 			//var mask = LayerUtils.EnemyMask;
 
 			var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, _mask);

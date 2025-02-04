@@ -6,7 +6,6 @@ namespace LearnGame.Enemy
 
 	public class EnemyCharater : BaseCharater
 	{
-
 	}
 
 }
