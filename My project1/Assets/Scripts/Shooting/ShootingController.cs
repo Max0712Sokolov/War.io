@@ -19,10 +19,10 @@ namespace LearnGame.Shooting
 
 		protected void Awake()
 		{
-			if (_targetType == TargetType.Player)
-				_mask = LayerUtils.PlayerMask;
-			else if (_targetType == TargetType.Enemy)
-				_mask = LayerUtils.EnemyMask;
+			//if (_targetType == TargetType.Player)
+				_mask = LayerUtils.PlayerMask | LayerUtils.EnemyMask;
+			//else if (_targetType == TargetType.Enemy)
+				//_mask = LayerUtils.EnemyMask;
 		}
 		protected void Update()
 		{

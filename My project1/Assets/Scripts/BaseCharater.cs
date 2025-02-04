@@ -3,6 +3,7 @@ using LearnGame.Movement;
 using LearnGame.Shooting;
 
 using UnityEngine;
+using System;
 
 namespace LearnGame
 {
@@ -10,6 +11,7 @@ namespace LearnGame
 
 	public abstract class BaseCharater : MonoBehaviour
 	{
+
 		[SerializeField]
 		private Weapon _baseWeaponPrefab;
 		[SerializeField]
@@ -42,8 +44,7 @@ namespace LearnGame
 			_charaterMovementController.MovementDirection = direction;
 			_charaterMovementController.LookDirection = lookDirection;
 			_charaterMovementController.IsRunning = _movementDirectionSourse.IsRunning;
-			if (_health <= 0)
-				Destroy(gameObject);
+			if (_health <= 0) Killed?.Invoke(this);			
 		}
 		protected void OnTriggerEnter(Collider other)
 		{
@@ -51,7 +52,6 @@ namespace LearnGame
 			{
 				var bullet = other.gameObject.GetComponent<Bullet>();
 				_health -= bullet.Damage;
-
 				Destroy(bullet.gameObject);
 			}
 			else if (LayerUtils.IsPickUp(other.gameObject))
@@ -61,6 +61,10 @@ namespace LearnGame
 				Destroy(pickUp.gameObject);
 			}
 		}
+		protected void LateUpdate()
+		{
+			if(_health <= 0) Destroy(gameObject);
+		}
 		public void SetWeapon(Weapon weapon)
 		{
 			_shootingController.SetWeapon(weapon, _hand);
@@ -68,7 +72,8 @@ namespace LearnGame
 		public void SpeedBoost(float multipiller, float timeSec)
 		{
 			_charaterMovementController.SpeedBoost(multipiller, timeSec);
-		}		
+		}
+		public event Action<BaseCharater> Killed;
 	}
 		
 }
