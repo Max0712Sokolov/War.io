@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LernGame.Movement
+namespace LearnGame.Movement
 {
 	public interface IMovementDirectionSourse
 	{
