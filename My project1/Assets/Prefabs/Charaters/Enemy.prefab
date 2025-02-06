@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 5333486342299210264}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Charater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.50000006
+  m_Radius: 0.5
   m_SlopeLimit: 15
   m_StepOffset: 0.2
   m_SkinWidth: 0.08
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _sprintMultipiler: 2
+  _sprintMultipiler: 1.2
   _maxRadiansDelta: 10
 --- !u!114 &4727405898794031414
 MonoBehaviour:
@@ -260,7 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseWeaponPrefab: {fileID: 8590368956194839970, guid: ac55098a497e00d47b6654e05dace2f4, type: 3}
   _hand: {fileID: 7472151071769322973}
-  _health: 20
+  _MaxHealth: 10
+  RunChanseFrom1Befor100: 70
+  LowHpProzentFrom1Before100: 30
 --- !u!114 &7679562776507984004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad3782ff00b314084b81aa31ae1711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetType: 1
 --- !u!114 &9047477451429680218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,4 +299,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7632fa346dd84e442a10cd879d3e662e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewRadius: 20
+  _viewRadius: 100

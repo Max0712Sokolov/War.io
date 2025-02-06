@@ -11,6 +11,15 @@ namespace LearnGame.Enemy
 
 		public bool IsRunning { get; private set; } = false;
 
+		public void Run()
+		{
+			IsRunning = true;
+		}
+		public void DontRun()
+		{
+			IsRunning = false;
+		}
+
 		public void UpdateMovementDirection(Vector3 targetPosition)
 		{
 			var realDirection = targetPosition - transform.position;

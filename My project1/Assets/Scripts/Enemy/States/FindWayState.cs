@@ -29,7 +29,8 @@ namespace LearnGame.Enemy.States
 				_currentPoint = currentPoint;
 				_enemyDirectionController.UpdateMovementDirection(currentPoint);
 			}
-			
+				_enemyDirectionController.DontRun();
+
 		}
 	}
 }

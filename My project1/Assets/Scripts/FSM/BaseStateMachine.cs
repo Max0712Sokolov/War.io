@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
+﻿using System.Collections.Generic;
 using LearnGame.Exceptions;
 
 namespace LearnGame.FSM
@@ -41,16 +36,16 @@ namespace LearnGame.FSM
 
 		public void Update()
 		{
-            foreach (var transition in _transitions[_currentState])
-            {
-                if(transition.Condition())
+			foreach (var transition in _transitions[_currentState])
+			{
+				if(transition.Condition())
 				{
 					_currentState = transition.ToState;
 					break;
 				}
-            }
+			}
 
 			_currentState.Execute();
-        }
+		}
 	}
 }

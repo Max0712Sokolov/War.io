@@ -21,19 +21,19 @@ namespace LearnGame
 		private ShootingController _shootingController;
 
 		[SerializeField]
-		private float _health = 2f;
+		protected float _MaxHealth = 2f;
+		protected float _health;
 
 		protected void Awake()
 		{
+			_health = _MaxHealth;
 			_charaterMovementController = GetComponent<CharaterMovementController>();
 			_movementDirectionSourse = GetComponent<IMovementDirectionSourse>();
 			_shootingController = GetComponent<ShootingController>();
-		}
-
-		protected void Start()
-		{
 			SetWeapon(_baseWeaponPrefab);
+
 		}
+	
 		protected void Update()
 		{
 

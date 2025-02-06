@@ -3,28 +3,27 @@ using UnityEngine;
 
 namespace LearnGame.Enemy.States
 {
-	public class MoveForwardState : BaseState
+	public class RunAwayState : BaseState
 	{
-		private readonly EnemyTarget _target;
+		private readonly EnemyTarget _danger;
 		private readonly EnemyDirectionController _enemyDirectionController;
 
 		private Vector3 _currentPoint;
-		public MoveForwardState(EnemyTarget target, EnemyDirectionController enemyDirectionController)
+		public RunAwayState(EnemyTarget target, EnemyDirectionController enemyDirectionController)
 		{
-			_target = target;
+			_danger = target;
 			_enemyDirectionController = enemyDirectionController;
 		}
 		public override void Execute()
 		{
-			Vector3 targetPosition = _target.Closest.transform.position;
+			Vector3 targetPosition = _danger.Closest.transform.position;
 
 			if (_currentPoint != targetPosition)
 			{
 				_currentPoint = targetPosition;
-				_enemyDirectionController.UpdateMovementDirection(targetPosition);
+				_enemyDirectionController.UpdateMovementDirection(-targetPosition);
+				_enemyDirectionController.Run();
 			}
-			_enemyDirectionController.DontRun();
-
 		}
 	}
 }

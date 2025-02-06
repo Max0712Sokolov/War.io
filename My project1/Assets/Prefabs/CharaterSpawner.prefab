@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c08bb5d5cd7454db664bc8e900053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerChataterPrefab: {fileID: 6169635752366851977, guid: 45339f8232849ce4f800e74ae4d2c97c, type: 3}
   _enemyChataterPrefab: {fileID: 4727405898794031414, guid: 82ba61cd0fd269b4b96ef09ee46fb7fe, type: 3}
   _range: 5
   _spawnIntervalSecondsMin: 1

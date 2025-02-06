@@ -1,7 +1,5 @@
 ﻿using LearnGame.FSM;
-using System;
 using System.Collections.Generic;
-
 
 namespace LearnGame.Enemy.States
 {
@@ -13,6 +11,8 @@ namespace LearnGame.Enemy.States
 			var idleState = new IdleState();
 			var findWayState = new FindWayState(target, navMesher, enemyDirectionController);
 			var moveForwardState = new MoveForwardState(target, enemyDirectionController);
+			var RunAwayState = new RunAwayState(target, enemyDirectionController);
+			var enemy = enemyDirectionController.gameObject.GetComponent<EnemyCharater>();
 
 			SetInitialState(idleState);
 
@@ -20,7 +20,7 @@ namespace LearnGame.Enemy.States
 			{
 				new Transition(findWayState,() => target.DistanceToClosestFromAgent() > NavMeshTurnOffDistance),
 				new Transition(moveForwardState, ()=> target.DistanceToClosestFromAgent() <= NavMeshTurnOffDistance),
-
+				new Transition(RunAwayState, () => enemy.IsLowHp && enemy.Run && LayerUtils.IsChatater(target.Closest)),
 			}
 			);
 			AddState(state: findWayState, transitions: new List<Transition>
@@ -32,7 +32,13 @@ namespace LearnGame.Enemy.States
 			AddState(state: moveForwardState, transitions: new List<Transition>
 			{
 				new Transition(findWayState,() => target.DistanceToClosestFromAgent() > NavMeshTurnOffDistance),
-				new Transition(idleState, ()=> target.Closest == null),
+				new Transition(idleState, () => target.Closest == null),
+				new Transition(RunAwayState,() => enemy.IsLowHp && enemy.Run && LayerUtils.IsChatater(target.Closest)),
+
+			}
+			);AddState(state: RunAwayState, transitions: new List<Transition>
+			{
+				new Transition(idleState,() => !LayerUtils.IsChatater(target.Closest)),
 			}
 			);
 		}

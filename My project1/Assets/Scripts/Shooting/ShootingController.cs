@@ -4,7 +4,6 @@ namespace LearnGame.Shooting
 {
 	public class ShootingController : MonoBehaviour
 	{
-		private enum TargetType {Player, Enemy }
 		public bool HasTarget => _target != null;
 		public Weapon Weapon { get; private set; }
 		private float _nextShotTimerSec = 0f;
@@ -12,17 +11,12 @@ namespace LearnGame.Shooting
 		private Collider[] _colliders = new Collider[2];
 		public bool IsWeaponDefault { get; private set; } = true;
 
-		[SerializeField]
-		private TargetType _targetType = TargetType.Enemy;
 		private int _mask;
 		public Vector3 TargetPosition => _target.transform.position;
 
 		protected void Awake()
 		{
-			//if (_targetType == TargetType.Player)
-				_mask = LayerUtils.PlayerMask | LayerUtils.EnemyMask;
-			//else if (_targetType == TargetType.Enemy)
-				//_mask = LayerUtils.EnemyMask;
+			_mask = LayerUtils.PlayerMask | LayerUtils.EnemyMask;		
 		}
 		protected void Update()
 		{
@@ -55,7 +49,6 @@ namespace LearnGame.Shooting
 			GameObject target = null;
 			var position = Weapon.transform.position;
 			var radius = Weapon.ShootRadius;
-			//var mask = LayerUtils.EnemyMask;
 
 			var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, _mask);
 			if (size > 0)

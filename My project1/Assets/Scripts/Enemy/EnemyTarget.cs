@@ -27,8 +27,8 @@ namespace LearnGame.Enemy
 			{
 				var go = _colliders[i].gameObject;
 				if (go == _agentTransform.gameObject) continue;
-				if(go.tag == "PickUpWeapon" && !_agentTransform.gameObject.GetComponent<ShootingController>().IsWeaponDefault) continue;
-				if (go.tag == "SpeedBooster" && _agentTransform.gameObject.GetComponent<CharaterMovementController>().IsSpeedBoosted) continue;
+				if(go.tag == TagUtils.PickUpWeaponTag && !_agentTransform.gameObject.GetComponent<ShootingController>().IsWeaponDefault) continue;
+				if (go.tag == TagUtils.SpeedBoosterTag && _agentTransform.gameObject.GetComponent<CharaterMovementController>().IsSpeedBoosted) continue;
 				var distance = DistanceFromAgetnTo(go);
 				if (distance < minDistance)
 				{
@@ -43,7 +43,7 @@ namespace LearnGame.Enemy
 		{
 			if (Closest != null)
 				return DistanceFromAgetnTo(Closest);
-			return 0;
+			return float.MaxValue;
 		}
 		private int FindAllTargets(int layerMask)
 		{
