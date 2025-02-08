@@ -1,17 +1,15 @@
 using LearnGame.PickUp;
-using LearnGame.Movement;
-using LearnGame.Shooting;
+using LernGame.Movement;
+using LernGame.Shooting;
 
 using UnityEngine;
-using System;
 
-namespace LearnGame
+namespace LernGame
 {
 	[RequireComponent(typeof(CharaterMovementController), typeof(ShootingController))]
 
 	public abstract class BaseCharater : MonoBehaviour
 	{
-
 		[SerializeField]
 		private Weapon _baseWeaponPrefab;
 		[SerializeField]
@@ -21,22 +19,21 @@ namespace LearnGame
 		private ShootingController _shootingController;
 
 		[SerializeField]
-		protected float _MaxHealth = 2f;
-		protected float _health;
+		private float _health = 2f;
 
 		protected void Awake()
 		{
-			_health = _MaxHealth;
 			_charaterMovementController = GetComponent<CharaterMovementController>();
 			_movementDirectionSourse = GetComponent<IMovementDirectionSourse>();
 			_shootingController = GetComponent<ShootingController>();
-			SetWeapon(_baseWeaponPrefab);
-
 		}
-	
+
+		protected void Start()
+		{
+			SetWeapon(_baseWeaponPrefab);
+		}
 		protected void Update()
 		{
-
 			var direction = _movementDirectionSourse.MovementDirection;
 			var lookDirection = direction;
 			if (_shootingController.HasTarget)
@@ -44,7 +41,8 @@ namespace LearnGame
 			_charaterMovementController.MovementDirection = direction;
 			_charaterMovementController.LookDirection = lookDirection;
 			_charaterMovementController.IsRunning = _movementDirectionSourse.IsRunning;
-			if (_health <= 0) Killed?.Invoke(this);			
+			if (_health <= 0)
+				Destroy(gameObject);
 		}
 		protected void OnTriggerEnter(Collider other)
 		{
@@ -52,6 +50,7 @@ namespace LearnGame
 			{
 				var bullet = other.gameObject.GetComponent<Bullet>();
 				_health -= bullet.Damage;
+
 				Destroy(bullet.gameObject);
 			}
 			else if (LayerUtils.IsPickUp(other.gameObject))
@@ -61,20 +60,17 @@ namespace LearnGame
 				Destroy(pickUp.gameObject);
 			}
 		}
-		protected void LateUpdate()
-		{
-			if(_health <= 0) Destroy(gameObject);
-		}
 		public void SetWeapon(Weapon weapon)
 		{
 			_shootingController.SetWeapon(weapon, _hand);
 		}
 		public void SpeedBoost(float multipiller, float timeSec)
 		{
-			_charaterMovementController.SpeedBoost(multipiller, timeSec);
+			_charaterMovementController.TimeSpeedBoostSec = timeSec;
+			_charaterMovementController.SpeedBoostMultipiller = multipiller;
 		}
-		public event Action<BaseCharater> Killed;
 	}
+
 		
 }
 

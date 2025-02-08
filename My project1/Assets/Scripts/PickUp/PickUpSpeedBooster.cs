@@ -1,4 +1,4 @@
-using LearnGame;
+using LernGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

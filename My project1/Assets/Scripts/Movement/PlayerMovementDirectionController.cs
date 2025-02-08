@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace LearnGame.Movement
+namespace LernGame.Movement
 {
 	public class PlayerMovementDirectionController : MonoBehaviour, IMovementDirectionSourse
 	{

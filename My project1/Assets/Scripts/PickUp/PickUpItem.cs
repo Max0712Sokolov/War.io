@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-using LearnGame;
+using LernGame;
 
 namespace LearnGame.PickUp
 {

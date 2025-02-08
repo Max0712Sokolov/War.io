@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7573304963165569223}
   m_Layer: 8
   m_Name: SniperRiflePickUp
-  m_TagString: PickUpWeapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
