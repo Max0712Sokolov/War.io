@@ -13,8 +13,9 @@ namespace LearnGame.Enemy
 		public bool IsLowHp { get  => (_health / _MaxHealth) < (LowHpProzentFrom1Before100 / 100f);}
 		private float _rand;
 
-		private void Start()
+		new private void Start()
 		{
+			base.Start();
 			_rand = Random.Range(0f, 100f);
 		}
 		public bool Run { get => _rand < RunChanseFrom1Befor100;}

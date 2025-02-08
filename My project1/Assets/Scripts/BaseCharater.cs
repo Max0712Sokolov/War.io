@@ -30,10 +30,13 @@ namespace LearnGame
 			_charaterMovementController = GetComponent<CharaterMovementController>();
 			_movementDirectionSourse = GetComponent<IMovementDirectionSourse>();
 			_shootingController = GetComponent<ShootingController>();
-			SetWeapon(_baseWeaponPrefab);
-
 		}
-	
+
+		protected void Start()
+		{
+			SetWeapon(_baseWeaponPrefab);
+		}
+
 		protected void Update()
 		{
 
