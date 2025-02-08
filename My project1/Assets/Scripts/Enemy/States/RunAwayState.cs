@@ -20,8 +20,8 @@ namespace LearnGame.Enemy.States
 
 			if (_currentPoint != targetPosition)
 			{
-				_currentPoint = targetPosition;
-				_enemyDirectionController.UpdateMovementDirection(-targetPosition);
+				_currentPoint = -targetPosition;
+				_enemyDirectionController.UpdateMovementDirection(targetPosition);
 				_enemyDirectionController.Run();
 			}
 		}
