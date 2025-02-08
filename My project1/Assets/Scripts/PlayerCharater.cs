@@ -1,9 +1,9 @@
-using LearnGame.Movement;
-using LearnGame.Shooting;
+using LernGame.Movement;
+using LernGame.Shooting;
 
 using UnityEngine;
 
-namespace LearnGame
+namespace LernGame
 {
 	[RequireComponent(typeof(PlayerMovementDirectionController))]
 

@@ -1,6 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace LearnGame.Movement
+namespace LernGame.Movement
 {
 	[RequireComponent(typeof(CharacterController))]
 	public class CharaterMovementController : MonoBehaviour
@@ -15,8 +19,10 @@ namespace LearnGame.Movement
 		public Vector3 MovementDirection { get; set; }
 		public Vector3 LookDirection { get; set; }
 		private CharacterController characterController;
-		private float _timeSpeedBoostSec = 0f;
-		private float _speedBoostMultipiller = 1f;
+		//private bool speedBoosted = false;
+		//public float SpeedMultipiller { get; set; } = 1f;
+		public float TimeSpeedBoostSec { private get; set; } = 0f;
+		public float SpeedBoostMultipiller {private get; set; } = 1f;
 		public bool IsRunning { get; set; }
 
 		protected void Awake()
@@ -36,10 +42,10 @@ namespace LearnGame.Movement
 			var delta = MovementDirection * _speed * Time.deltaTime;
 			if (IsRunning)
 				delta *= _sprintMultipiler;
-			if(_timeSpeedBoostSec > 0f)
+			if(TimeSpeedBoostSec > 0f)
 			{
-				delta *= _speedBoostMultipiller;
-				_timeSpeedBoostSec -= Time.deltaTime;
+				delta *= SpeedBoostMultipiller;
+				TimeSpeedBoostSec -= Time.deltaTime;
 			}	
 			characterController.Move(delta);
 		}
@@ -56,11 +62,6 @@ namespace LearnGame.Movement
 				transform.rotation = newRotation;
 			}
 		}
-		public void SpeedBoost(float multipiller, float timeSec)
-		{
-			_speedBoostMultipiller = multipiller;
-			_timeSpeedBoostSec = timeSec;
-		}
-		public bool IsSpeedBoosted { get => _timeSpeedBoostSec > 0f; }
+		
 	}
 }

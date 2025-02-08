@@ -1,23 +1,15 @@
+using LernGame.Movement;
+using LernGame.Shooting;
+
 using UnityEngine;
 
-namespace LearnGame.Enemy
+namespace LernGame
 {
-	[RequireComponent(typeof(EnemyDirectionController), typeof(EnemyAiController))]
+	[RequireComponent(typeof(DummyDirectionController))]
 
 	public class EnemyCharater : BaseCharater
 	{
-		[SerializeField]
-		private float RunChanseFrom1Befor100;
-		[SerializeField]
-		private float LowHpProzentFrom1Before100;
-		public bool IsLowHp { get  => (_health / _MaxHealth) < (LowHpProzentFrom1Before100 / 100f);}
-		private float _rand;
 
-		private void Start()
-		{
-			_rand = Random.Range(0f, 100f);
-		}
-		public bool Run { get => _rand < RunChanseFrom1Befor100;}
 	}
 
 }

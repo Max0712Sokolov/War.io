@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace LearnGame.Shooting
+namespace LernGame.Shooting
 {
 	public class Bullet : MonoBehaviour
 	{
