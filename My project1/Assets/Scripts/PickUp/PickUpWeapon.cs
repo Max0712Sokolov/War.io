@@ -1,5 +1,5 @@
-using LernGame;
-using LernGame.Shooting;
+using LearnGame;
+using LearnGame.Shooting;
 using UnityEngine;
 
 namespace LearnGame.PickUp

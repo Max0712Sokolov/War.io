@@ -125,14 +125,15 @@ GameObject:
   - component: {fileID: 7144383180294935310}
   - component: {fileID: 2511811251770922036}
   - component: {fileID: 3521508990346167794}
-  - component: {fileID: 3950143557762244865}
   - component: {fileID: 3754977325524716304}
   - component: {fileID: 566630560400563223}
   - component: {fileID: 4727405898794031414}
   - component: {fileID: 7679562776507984004}
+  - component: {fileID: 9047477451429680218}
+  - component: {fileID: 5333486342299210264}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Charater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,18 +205,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3950143557762244865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3287056705604812897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86946f2d1446474984126cd48335714, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &3754977325524716304
 CharacterController:
   m_ObjectHideFlags: 0
@@ -236,9 +225,9 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.50000006
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_Radius: 0.5
+  m_SlopeLimit: 15
+  m_StepOffset: 0.2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -254,8 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e450fed298b5e24f830e2ade8001ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  maxRadiansDelta: 10
+  _speed: 5
+  _sprintMultipiler: 1.2
+  _maxRadiansDelta: 10
 --- !u!114 &4727405898794031414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseWeaponPrefab: {fileID: 8590368956194839970, guid: ac55098a497e00d47b6654e05dace2f4, type: 3}
   _hand: {fileID: 7472151071769322973}
-  _health: 3
+  _MaxHealth: 10
+  RunChanseFrom1Befor100: 70
+  LowHpProzentFrom1Before100: 30
 --- !u!114 &7679562776507984004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,4 +275,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad3782ff00b314084b81aa31ae1711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetType: 0
+--- !u!114 &9047477451429680218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287056705604812897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f5eeceb9d428f4aad498d72dd9e887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5333486342299210264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287056705604812897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7632fa346dd84e442a10cd879d3e662e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewRadius: 100
