@@ -18,10 +18,15 @@ namespace LearnGame.Enemy
 			IsRunning = false;
 		}
 
-		public void UpdateMovementDirection(Vector3 targetPosition)
+		public void UpdateMovementDirection(Vector3 targetPosition, bool invert = false)
 		{
 			var realDirection = targetPosition - transform.position;
-			MovementDirection = new Vector3 (realDirection.x, 0, realDirection.z).normalized;
+			Vector3 movementDirection;
+			if (invert)
+				movementDirection = - new Vector3(realDirection.x, 0, realDirection.z).normalized;
+			else
+				movementDirection = new Vector3(realDirection.x, 0, realDirection.z).normalized;
+			MovementDirection = movementDirection;
 		}
 	}
 }

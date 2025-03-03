@@ -1,9 +1,6 @@
 ﻿using LearnGame.FSM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
+
 
 namespace LearnGame.Enemy.States
 {
@@ -11,7 +8,7 @@ namespace LearnGame.Enemy.States
 	{
 		public override void Execute()
 		{
-			
+			Debug.Log("idle");
 		}
 	}
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class CharaterSpawner : MonoBehaviour
+public class CharacterSpawner : MonoBehaviour
 {
 	[SerializeField]
 	private PlayerCharater _playerChataterPrefab;
@@ -17,10 +17,14 @@ public class CharaterSpawner : MonoBehaviour
 	private float _spawnIntervalSecondsMin = 2f;
 	[SerializeField]
 	private float _spawnIntervalSecondsMax = 10f;
-	private static int _maxEnemyCount = 5; //  общее колличесво врагов на сцене
+	[SerializeField]
+	CharacterSpawnerManager _spawnerManager;
+	//private static int _maxEnemyCount = 5; //  общее колличесво врагов на сцене
 	private static int _currentEnemyCount;
 	private float _spawnIntervalSeconds;
-	private static bool _isPlayerSpawned = false;
+	//private static bool _isPlayerSpawned = false;
+	private bool _isFirstPlayerSpawner = false;
+
 
 
 	private float _currentSpawnTimerSeconds;
@@ -29,44 +33,50 @@ public class CharaterSpawner : MonoBehaviour
 		_spawnIntervalSeconds = Random.Range(_spawnIntervalSecondsMin, _spawnIntervalSecondsMax);
 	}
 
+	protected void Start()
+	{
+		if(_isFirstPlayerSpawner)
+			SpawnPlayer();
+	}
+
 	protected void Update()
 	{
 		if (_currentSpawnTimerSeconds < _spawnIntervalSeconds)
 			_currentSpawnTimerSeconds += Time.deltaTime;
 		else
 		{
-			if( _isPlayerSpawned ) SpawnChatater(_enemyChataterPrefab);
+			if( _spawnerManager.IsPlayerSpawned ) SpawnEnemy();
 				else
 				{
 					if(Random.Range(0, 2) ==  0)
-						SpawnChatater(_enemyChataterPrefab);
+						SpawnEnemy();
 						else
-							SpawnCharater(_playerChataterPrefab);
+							SpawnPlayer();
 				}
 			_currentSpawnTimerSeconds = 0f;			
 		}
 	}
-	private void SpawnChatater(EnemyCharater enemyPrefab)
+	private void SpawnEnemy()
 	{
-		if (_currentEnemyCount < _maxEnemyCount)
+		if (_currentEnemyCount < _spawnerManager.MaxEnemyCount)
 		{			
 			_currentEnemyCount++;
 
 			var randomPointInsideRange = Random.insideUnitCircle * _range;
 			var randomPosition = new Vector3(randomPointInsideRange.x, 1f, randomPointInsideRange.y) + transform.position;
 
-			var Enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity, transform);
+			var Enemy = Instantiate(_enemyChataterPrefab, randomPosition, Quaternion.identity, transform);
 			Enemy.Killed += OnEnemyKilled;
 			_spawnIntervalSeconds = Random.Range(_spawnIntervalSecondsMin, _spawnIntervalSecondsMax);			
 		}
 	}
-	private void SpawnCharater(PlayerCharater playerPrefab)
+	public void SpawnPlayer()
 	{
-		_isPlayerSpawned = true;
+		_spawnerManager.IsPlayerSpawned = true;
 		var randomPointInsideRange = Random.insideUnitCircle * _range;
 		var randomPosition = new Vector3(randomPointInsideRange.x, 1f, randomPointInsideRange.y) + transform.position;
 
-		var Player = Instantiate(playerPrefab, randomPosition, Quaternion.identity, transform);
+		var Player = Instantiate(_playerChataterPrefab, randomPosition, Quaternion.identity, transform);
 		Player.Killed += OnPlayerKilled;
 		_spawnIntervalSeconds = Random.Range(_spawnIntervalSecondsMin, _spawnIntervalSecondsMax);
 	}
@@ -78,7 +88,12 @@ public class CharaterSpawner : MonoBehaviour
 	private void OnPlayerKilled(BaseCharater palyer)
 	{
 		palyer.Killed -= OnPlayerKilled;
-		_isPlayerSpawned = false;
+		_spawnerManager.IsPlayerSpawned = false;
+	}
+
+	public void SetFirstPlayerSpawner()
+	{
+		_isFirstPlayerSpawner = true;
 	}
 	protected void OnDrawGizmos()
 	{

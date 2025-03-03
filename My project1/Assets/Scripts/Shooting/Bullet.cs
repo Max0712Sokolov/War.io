@@ -10,10 +10,13 @@ namespace LearnGame.Shooting
 		private float _flySpeed;
 		private float _maxFlyDistance;
 		private float _currentFlyDistance;
+		[SerializeField]
+		private Transform _view;
 		public float Damage { get; private set; }
 
 		public void Initialize(Vector3 direction, float maxFlyDistance, float flySpeed, float damage)
 		{
+			_view.LookAt(direction + transform.position);
 			_direction = direction;
 			_flySpeed = flySpeed;
 			_maxFlyDistance = maxFlyDistance;

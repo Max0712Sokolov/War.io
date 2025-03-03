@@ -17,7 +17,7 @@ namespace LearnGame.Enemy.States
 		public override void Execute()
 		{
 			Vector3 targetPosition = _target.Closest.transform.position;
-
+			Debug.Log("move forvard");
 			if (_currentPoint != targetPosition)
 			{
 				_currentPoint = targetPosition;

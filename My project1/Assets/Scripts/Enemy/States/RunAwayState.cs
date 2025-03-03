@@ -17,13 +17,10 @@ namespace LearnGame.Enemy.States
 		public override void Execute()
 		{
 			Vector3 targetPosition = _danger.Closest.transform.position;
-
-			if (_currentPoint != targetPosition)
-			{
-				_currentPoint = -targetPosition;
-				_enemyDirectionController.UpdateMovementDirection(targetPosition);
-				_enemyDirectionController.Run();
-			}
+			Debug.Log("Run away");
+			_currentPoint = targetPosition;
+			_enemyDirectionController.UpdateMovementDirection(targetPosition, true);
+			_enemyDirectionController.Run();
 		}
 	}
 }

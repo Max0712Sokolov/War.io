@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _sprintMultipiler: 1.2
+  _sprintMultipiler: 1.5
   _maxRadiansDelta: 10
 --- !u!114 &4727405898794031414
 MonoBehaviour:
