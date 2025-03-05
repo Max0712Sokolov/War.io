@@ -19,6 +19,8 @@ namespace LearnGame
 		private IMovementDirectionSourse _movementDirectionSourse;
 		private CharaterMovementController _charaterMovementController;
 		private ShootingController _shootingController;
+		[SerializeField]
+		private Animator _animator;
 
 		[SerializeField]
 		protected float _MaxHealth = 2f;
@@ -47,7 +49,10 @@ namespace LearnGame
 			_charaterMovementController.MovementDirection = direction;
 			_charaterMovementController.LookDirection = lookDirection;
 			_charaterMovementController.IsRunning = _movementDirectionSourse.IsRunning;
-			if (_health <= 0) Killed?.Invoke(this);			
+			if (_health <= 0) Killed?.Invoke(this);
+			
+			_animator.SetBool("IsRunning", direction != Vector3.zero);
+			_animator.SetBool("IsShooting", _shootingController.HasTarget);
 		}
 		protected void OnTriggerEnter(Collider other)
 		{
