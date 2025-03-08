@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 5828871762438202154}
   - component: {fileID: 8145304953623216016}
   - component: {fileID: 7573304963165569223}
+  - component: {fileID: 3786772029510501026}
   m_Layer: 8
   m_Name: AssaultRiflePickUp
   m_TagString: PickUpWeapon
@@ -216,6 +217,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.2, z: 0.5}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &3786772029510501026
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7729423057638389135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 862dd19f291f6a645873c9418f4ab73e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8989753769540201921
 GameObject:
   m_ObjectHideFlags: 0

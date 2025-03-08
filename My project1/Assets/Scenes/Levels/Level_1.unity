@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  followCameraOffset: {x: -9, y: 10, z: -7}
+  followCameraOffset: {x: -8, y: 7, z: -6}
   rotationOffset: {x: 0, y: 0, z: 0}
   _defaultTransform: {fileID: 699029581}
 --- !u!1001 &992811953

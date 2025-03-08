@@ -28,9 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2116479517406815380}
-  - {fileID: 3766395206422812208}
+  m_Children: []
   m_Father: {fileID: 5828871762438202154}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2923870784347061754
@@ -59,12 +57,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2923870784347061754}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 0.3, y: 1.5, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 1.5000005, z: 0.30000007}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6449048634748676278}
+  m_Father: {fileID: 7307622749602582001}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &9088258041417973370
 MeshFilter:
@@ -142,12 +140,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4543917416045907082}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25881904, y: -0, z: 0.8365164, w: 0.4829629}
-  m_LocalPosition: {x: 0, y: 0.000000029802322, z: -0.20000002}
+  m_LocalRotation: {x: -0.15849364, y: 0.59150636, z: 0.59150636, w: 0.524519}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6449048634748676278}
+  m_Father: {fileID: 7307622749602582001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &282380877330110869
 MeshFilter:
@@ -214,6 +212,7 @@ GameObject:
   - component: {fileID: 5828871762438202154}
   - component: {fileID: 8145304953623216016}
   - component: {fileID: 7573304963165569223}
+  - component: {fileID: 3786772029510501026}
   m_Layer: 8
   m_Name: SniperRiflePickUp
   m_TagString: PickUpWeapon
@@ -235,6 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6449048634748676278}
+  - {fileID: 7307622749602582001}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8145304953623216016
@@ -271,3 +271,57 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.5, z: 0.5}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &3786772029510501026
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7729423057638389135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8743620060186782289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7307622749602582001}
+  m_Layer: 0
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7307622749602582001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743620060186782289}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2116479517406815380}
+  - {fileID: 3766395206422812208}
+  m_Father: {fileID: 5828871762438202154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

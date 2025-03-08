@@ -4,6 +4,7 @@ using LearnGame;
 
 namespace LearnGame.PickUp
 {
+	[RequireComponent(typeof(Animator))]
 	public abstract class PickUpItem : MonoBehaviour
 	{
 		public event Action<PickUpItem> OnPickedUp;

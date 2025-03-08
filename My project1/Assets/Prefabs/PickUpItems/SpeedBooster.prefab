@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 3002070960494360070}
   - component: {fileID: 8157381300362034354}
   - component: {fileID: 125845576206096670}
+  - component: {fileID: 1539255992557079150}
   m_Layer: 8
   m_Name: SpeedBooster
   m_TagString: SpeedBooster
@@ -639,6 +640,27 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 2
   m_Center: {x: 0, y: 0.703774, z: 0.12064147}
+--- !u!95 &1539255992557079150
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352066955191903975}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 862dd19f291f6a645873c9418f4ab73e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9158030385719154250
 GameObject:
   m_ObjectHideFlags: 0
