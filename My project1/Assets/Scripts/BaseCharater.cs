@@ -1,7 +1,6 @@
 using LearnGame.PickUp;
 using LearnGame.Movement;
 using LearnGame.Shooting;
-
 using UnityEngine;
 using System;
 
@@ -21,6 +20,8 @@ namespace LearnGame
 		private ShootingController _shootingController;
 		[SerializeField]
 		private Animator _animator;
+		[SerializeField]
+		private Animator _animator2;
 
 		[SerializeField]
 		protected float _MaxHealth = 2f;
@@ -54,6 +55,7 @@ namespace LearnGame
 			_animator.SetBool("IsRunning", direction != Vector3.zero);
 			_animator.SetBool("IsShooting", _shootingController.HasTarget);
 		}
+
 		protected void OnTriggerEnter(Collider other)
 		{
 			if (LayerUtils.IsBullet(other.gameObject))
@@ -69,21 +71,34 @@ namespace LearnGame
 				Destroy(pickUp.gameObject);
 			}
 		}
+
 		protected void LateUpdate()
 		{
-			if(_health <= 0) Destroy(gameObject);
+			if (_health <= 0)
+			{
+				enabled = false;
+				_charaterMovementController.MovementDirection = Vector3.zero;
+				PlayDeathAnimation();
+				Destroy(gameObject, 5);
+			}
 		}
+
 		public void SetWeapon(Weapon weapon)
 		{
 			_shootingController.SetWeapon(weapon, _hand);
 		}
+
 		public void SpeedBoost(float multipiller, float timeSec)
 		{
 			_charaterMovementController.SpeedBoost(multipiller, timeSec);
+		}
+
+		private void PlayDeathAnimation()
+		{
+			_animator.SetTrigger("Death");
+			_animator2.SetTrigger("Death");
 		}
 		public event Action<BaseCharater> Killed;
 	}
 		
 }
-
-
